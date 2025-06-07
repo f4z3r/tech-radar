@@ -1,0 +1,130 @@
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Center content vertically */
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  max-width: 650px;
+  text-align: center; /* Center all inline children, like the legend */
+}
+
+.word-cloud {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 0px;
+  column-gap: 20px;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin-bottom: 30px; /* Add space between word cloud and legend */
+}
+
+.word {
+  position: relative;
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.word:hover {
+  color: #007bff;
+}
+
+.word .tooltip {
+  visibility: hidden;
+  width: 220px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  /* Removed 'bottom' and set 'top' to position it below the word */
+  top: 115%;
+  left: 50%;
+  margin-left: -110px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+/* Modified arrow to point upwards */
+.word .tooltip::after {
+  content: "";
+  position: absolute;
+  /* Position arrow at the top of the tooltip */
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  /* Changed border-color to make arrow point up */
+  border-color: transparent transparent #555 transparent;
+}
+
+
+.word:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.legend {
+  display: inline-block;
+  text-align: center;
+  color: #444;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.legend h4 {
+  margin: 0 0 12px 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #333;
+}
+
+.legend ul {
+    display: inline-block;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+.legend li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+/* Word weights converted to font sizes */
+.weight-1 { font-size: 1em; }
+.weight-2 { font-size: 1.5em; }
+.weight-3 {
+  font-size: 2em;
+  font-weight: bold;
+}
+.weight-4 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+.weight-5 {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+/* Focus */
+.ff-cloud { color: #e61873; }
+.ff-ai-data { color: #76c7c9; }
+.ff-ca { color: #009309; }
+.ff-security { color: #fbb934; }
+.ff-integration { color: #374151; }
